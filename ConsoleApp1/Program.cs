@@ -37,7 +37,8 @@ namespace ConsoleApp1
 			    {
 				    string hmm = mn.ReadLine();
 				    file.WriteLine(a + " " + b + ":" + hmm );
-			    } 
+			    }
+			    File.Delete("maiden.txt");
 	    goto b;}
 	    else {
 	    file.WriteLine(a + " " + b + " "); 
@@ -51,6 +52,7 @@ namespace ConsoleApp1
 				    string hmm = mn.ReadLine();
 				     file.WriteLine(a + " " + b + ":" + hmm );
 			     } 
+			      File.Delete("maiden.txt");
 			      goto b;}
 		     else {
 		    file.WriteLine(a + " " + b + " "); 

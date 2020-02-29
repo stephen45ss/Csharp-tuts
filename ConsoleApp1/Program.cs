@@ -7,10 +7,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {       a:
-	        string filepath = "hello.txt";
+	        string filepath = "data.txt";
 	    int loop = 1;
             while ( loop == 1 ) { 
-            string a, b, c;
+            string a, b, c, d, e;
             string mname;
             Console.WriteLine("Male or female?");
 	    c = Console.ReadLine();
@@ -27,21 +27,25 @@ namespace ConsoleApp1
 	    }
 	    else { goto c; }
 	c:
-	    Console.WriteLine("The name " + a + " " + b + " was added to our database!");
+		Console.WriteLine("Date of Birth: ");
+		d = Console.ReadLine();
+		Console.WriteLine("Social Security Number:");
+		e = Console.ReadLine();
+	    Console.WriteLine("Data successfully added to database!");
             if (!File.Exists(filepath)){
 	    using (StreamWriter file = File.CreateText(filepath))
 	    {
-		    file.WriteLine("Names: ");
+		    file.WriteLine("Employees: ");
 		    if (c == "female" || c == "f" || c == "Female"){
 			    using (StreamReader mn = new StreamReader("maiden.txt"))
 			    {
 				    string hmm = mn.ReadLine();
-				    file.WriteLine(a + " " + b + ":" + hmm );
+				    file.WriteLine(a + " " + b + "/" + hmm + " F " + d + " " + e);
 			    }
 			    File.Delete("maiden.txt");
 	    goto b;}
 	    else {
-	    file.WriteLine(a + " " + b + " "); 
+	    file.WriteLine(a + " " + b + " M " + d + " " + e); 
 	    goto b;}
 	    }}
 		    using (StreamWriter file = File.AppendText(filepath))
@@ -50,12 +54,12 @@ namespace ConsoleApp1
 			     using (StreamReader mn = new StreamReader("maiden.txt"))
 			     {
 				    string hmm = mn.ReadLine();
-				     file.WriteLine(a + " " + b + ":" + hmm );
+				     file.WriteLine(a + " " + b + "/" + hmm + " F " + d + " "+ e);
 			     } 
 			      File.Delete("maiden.txt");
 			      goto b;}
 		     else {
-		    file.WriteLine(a + " " + b + " "); 
+		    file.WriteLine(a + " " + b + " M " + d + " " + e); 
 		     goto b; } }
 	b:
 	    string choice;
